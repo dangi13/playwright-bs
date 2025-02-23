@@ -19,6 +19,11 @@ jobs:
         run: npm install
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
+      - name: 'BrowserStack Local Tunnel Setup'
+        uses: browserstack/github-actions/setup-local@master
+        with:
+          local-testing: start
+          local-identifier: random
       - name: Run Playwright tests on BrowserStack
         run: npx playwright test --config=playwright.config.ts
         env:
