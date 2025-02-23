@@ -19,15 +19,11 @@ jobs:
         run: npm install
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
-      - name: 'BrowserStack Env Setup'
-        uses: 'browserstack/github-actions/setup-env@master'
-        with:
-          username:  ${{ secrets.BROWSERSTACK_USERNAME }}
-          access-key: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
-          build-name: 'BUILD_INFO'
-          project-name: 'REPO_NAME'
-      - name: Run Playwright tests
-        run: npm test
+      - name: Run Playwright tests on BrowserStack
+        run: npx playwright test --config=playwright.config.ts
+        env:
+          BROWSERSTACK_USERNAME: ${{ secrets.BROWSERSTACK_USERNAME }}
+          BROWSERSTACK_ACCESS_KEY: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
       - uses: actions/upload-artifact@v3
         if: always()
         with:
