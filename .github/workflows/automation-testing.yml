@@ -19,6 +19,11 @@ jobs:
         run: npm install
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
+      - name: 'BrowserStack Env Setup'  # Invokes the setup-env action
+        uses: browserstack/github-actions/setup-env@master
+        with:
+          username:  ${{ secrets.BROWSERSTACK_USERNAME }}
+          access-key: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
       - name: 'BrowserStack Local Tunnel Setup'
         uses: browserstack/github-actions/setup-local@master
         with:
@@ -26,9 +31,6 @@ jobs:
           local-identifier: random
       - name: Run Playwright tests on BrowserStack
         run: npx playwright test --config=playwright.config.ts
-        env:
-          BROWSERSTACK_USERNAME: ${{ secrets.BROWSERSTACK_USERNAME }}
-          BROWSERSTACK_ACCESS_KEY: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
       - uses: actions/upload-artifact@v4
         if: always()
         with:
