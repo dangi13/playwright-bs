@@ -1,0 +1,26 @@
+{
+  "name": "playwright-bs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+   "test": "npx playwright test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dangi13/playwright-bs.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dangi13/playwright-bs/issues"
+  },
+  "homepage": "https://github.com/dangi13/playwright-bs#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.50.1",
+    "playwright": "^1.50.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.3"
+  }
+}
