@@ -18,7 +18,6 @@ const caps = {
   build: 'playwright-build',
   'browserstack.username': process.env.BROWSERSTACK_USERNAME || 'USERNAME',
   'browserstack.accessKey': process.env.BROWSERSTACK_ACCESS_KEY || 'ACCESSKEY',
-  'browserstack.local': process.env.BROWSERSTACK_LOCAL || true, 
   'client.playwrightVersion': clientPlaywrightVersion,
 };
 
